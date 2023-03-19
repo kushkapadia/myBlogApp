@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Register | TECHSHALA's Hackathon Preparation Event</title>
+  <link rel="stylesheet" href="../styles/register.css" />
+  <link rel="stylesheet" href="../styles/index.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Node JS & Mongo DB</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="../index.html">Home</a>
+          </li>
+          <% if(user){ %>
+            <li class="nav-item">
+              <form action="/logout" method="POST">
+              <button class="nav-link btn">Logout</button>
+            </form>
+            </li>
+            <% } else{ %>
+              <li class="nav-item">
+                <a class="nav-link" href="./login.html">Login</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="./register.html">Register</a>
+              </li>
+              <% } %>
+
+        </ul>
+        <form class="d-flex" role="search">
+          <button class="btn btn-outline-dark">
+            <a href="/create-blog-page">Create</a>
+          </button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+  <div id="home_wrapper">
+    
+    <div id="home_blogs_container">
+      <div class="container-fluid my-5">
+        <h2>Explore✨ Latest From our users!</h2>
+  
+      </div>
+      <% blogs.forEach((blog)=>{ %>
+
+        <a style="text-decoration: none; color: black;" href="/view-blog/<%=blog._id%>">
+          <div class="blog_container">
+            <div class="blog_col blog_col_title">
+              <h1><%=blog.title%></h1>
+              <span>Created by <%=blog.createdBy%> on <%=blog.createdDate.getDate()%>/ <%=blog.createdDate.getMonth() +1%>/<%=blog.createdDate.getFullYear()%></span>
+            </div>
+            <div class="blog_col blog_col_body">
+              <span><%=blog.body%></span>
+            </div>
+          </div>
+        </a>
+
+        <% }) %>
+
+    </div>
+
+  </div>
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+<!-- <footer> -->
+  <!-- <div style="text-align: center; height: 20px;"  class="d-flex flex-column  justify-center"> -->
+
+  
+  <!-- <script src="https://kit.fontawesome.com/d0e519250d.js" crossorigin="anonymous"></script>
+    <p>&#169; All Rights Reserved <%= new Date().getFullYear() %></p> 
+    <div>
+    <p>Designed and Developed by <strong style="color: #e4874a;"><em>Kush Kapadia & Aryan Shinde</em></strong></p>
+  </div>
+    <div class="social">
+ <a style="text-decoration: none; color: black;" href="https://github.com/kushkapadia">GitHub</a>
+ <a style="text-decoration: none; color: black;" href="https://www.linkedin.com/in/kushkapadia/">LinkedIn</a>
+ <a style="text-decoration: none; color: black;" href="https://www.instagram.com/kushkapadia_07/">Instagram</a>
+</div>
+ </div> 
+</footer> -->
+
+</html>
