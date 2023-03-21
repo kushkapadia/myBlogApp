@@ -1,6 +1,6 @@
 const { MongoClient } = require('mongodb')
 
-const client = new MongoClient("mongodb+srv://todoAppUser:kk1234567kk@cluster0.6lvjr.mongodb.net/blogApp?retryWrites=true&w=majority")
+const client = new MongoClient("mongodb+srv://todoAppUser:<yourPassword>@cluster0.6lvjr.mongodb.net/blogApp?retryWrites=true&w=majority")
 
 
 //A function to connect to the database
